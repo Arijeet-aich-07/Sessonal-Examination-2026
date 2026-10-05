@@ -1563,22 +1563,16 @@ function goToPreviousPage() {
 ===================================================== */
 
 const finalMessage =
-`Dear Birthday Girl,
+`Happy birthdayyyy myy all time savior... 🎂💗
 
-Today is your special day, so I just wanted to leave a little something here for you.
+Yk naa how much I love youuuu...
+Tere bina mera sab kaam adhura reh jata haiii...
 
-I hope this new year of your life brings you beautiful moments, peaceful days, lots of smiles, and many reasons to be happy.
+I wish amra shobai ekloge thakii alwaysss,
+kunodino alada na hoii...
+kunodino amgo friendship-e kuno khechrichu*i r nazar na poruk...
 
-Keep shining, keep smiling, and keep being the amazing person you are.
-
-Once again...
-
-Happy Birthday! 🎂✨
-
-With lots of good wishes,
-Someone who made this little surprise for you 💗`;
-
-
+I LOVE YOUU MWAHHHH. 💗🫶`;
 /* =====================================================
    RESET LETTER
 ===================================================== */
