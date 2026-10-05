@@ -765,89 +765,124 @@ button {
 }
 
 /* =====================================================
-   CANDLES
+   CANDLE + FLAME ANIMATION
 ===================================================== */
 
-.candles {
-    position: absolute;
-
-    left: 50%;
-    top: 70px;
-
-    transform: translateX(-50%);
-
-    width: 50%;
-    height: 65px;
+/* Candle area */
+.cake-stage {
+    position: relative;
+    width: 240px;
+    height: 250px;
+    margin: 10px auto 16px;
 
     display: flex;
-
-    justify-content: space-between;
-    align-items: flex-start;
-
-    z-index: 10;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
 }
 
-/* Individual candle */
-
-.candle {
-    position: relative;
-
-    width: 12px;
-    height: 46px;
-
-    border-radius: 4px;
-
-    background: repeating-linear-gradient(
-        -45deg,
-        #ffffff 0 7px,
-        #ff72a8 7px 13px
-    );
-
-    box-shadow:
-        0 2px 5px #0004,
-        inset 2px 0 3px #ffffff90;
-}
-
+/* Candles wrapper: Top cake ke bilkul upar place kiya */
 /* =====================================================
-   FLAME
+   CLEAN CANDLE SETUP (Single Candle + Flame Fix)
 ===================================================== */
 
+/* Outer wrapper */
+.candles-wrapper {
+    position: absolute !important;
+    left: 50% !important;
+    bottom: 202px !important;
+    transform: translateX(-50%) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-end !important;
+    gap: 22px !important;
+    z-index: 10 !important;
+}
+
+/* Parent container: Ispe koi color ya background NAHI hona chahiye */
+.candle {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 14px !important;
+    height: auto !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* 1. Flame (Sabse upar) */
 .flame {
-    position: absolute;
-
-    left: 50%;
-    top: -21px;
-
-    width: 13px;
-    height: 20px;
-
-    transform:
-        translateX(-50%)
-        rotate(-3deg);
-
-    border-radius:
-        60% 40%
-        60% 40%;
-
+    position: relative !important;
+    top: 0 !important;
+    width: 13px !important;
+    height: 19px !important;
+    border-radius: 55% 45% 50% 50% !important;
     background: radial-gradient(
-        circle at 50% 65%,
-        #ffffff 0 18%,
-        #ffe04b 19% 53%,
-        #ff9638 54% 100%
-    );
+        ellipse at 50% 70%,
+        #ffffff 0%,
+        #fff3a0 20%,
+        #ffd000 48%,
+        #ff8a00 75%,
+        #ff4d00 100%
+    ) !important;
+    box-shadow: 0 0 6px #ffd000, 0 0 14px #ffb300 !important;
+    transform-origin: 50% 100% !important;
+    animation: flicker .55s infinite alternate ease-in-out !important;
+    transition: opacity .35s ease, transform .35s ease !important;
+    z-index: 3 !important;
+}
 
+/* 2. Wick (Dhaaga/Black Thread - flame ke neeche, candle ke upar) */
+.wick {
+    width: 2.5px !important;
+    height: 7px !important;
+    background: #1f1f1f !important;
+    border-radius: 1px !important;
+    margin-top: -2px !important;
+    margin-bottom: -1px !important;
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    z-index: 2 !important;
+}
+
+/* 3. Candle Body (Sirf isme stripes rahengi) */
+.candle-body {
+    position: relative !important;
+    width: 14px !important;
+    height: 40px !important;
+    border-radius: 3px 3px 2px 2px !important;
+    background: repeating-linear-gradient(
+        45deg,
+        #ffffff 0 5px,
+        #ff7597 5px 10px
+    ) !important;
     box-shadow:
-        0 0 9px #ffbd4d,
-        0 0 17px #ff9d3d;
+        inset 1px 1px 2px #ffffffcc,
+        inset -1px -1px 2px #d64f75,
+        0 3px 6px rgba(0, 0, 0, 0.25) !important;
+    z-index: 1 !important;
+    display: block !important;
+}
 
-    transform-origin: 50% 100%;
+/* Blown state: Sirf Flame bujhegi, Wick aur Candle Body wahi rahenge */
+.blown .flame,
+.candles-wrapper.blown .flame {
+    opacity: 0 !important;
+    transform: translateY(-8px) scale(0.1) !important;
+    animation: none !important;
+    pointer-events: none !important;
+}
 
-    animation:
-        flameFlicker
-        .7s
-        infinite
-        alternate
-        ease-in-out;
+.blown .wick,
+.blown .candle-body,
+.candles-wrapper.blown .wick,
+.candles-wrapper.blown .candle-body {
+    display: block !important;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 /* =====================================================
@@ -953,65 +988,94 @@ button {
     }
 }
 
-/* =====================================================
-   FLAME FLICKER
-===================================================== */
-
-@keyframes flameFlicker {
+/* Natural flame movement */
+@keyframes flicker {
 
     0% {
         transform:
-            translateX(-50%)
-            scale(.9)
+            scale(.92)
             rotate(-4deg);
     }
 
     50% {
         transform:
-            translateX(-50%)
             scale(1.05)
-            rotate(3deg);
+            rotate(2deg);
     }
 
     100% {
         transform:
-            translateX(-50%)
-            scale(.94)
-            rotate(-2deg);
+            scale(.96)
+            rotate(4deg);
     }
 }
 
-/* =====================================================
-   BLOW OUT
-===================================================== */
+/* ================= WICK ================= */
 
-@keyframes blowOut {
+.wick {
+    width: 3px;
+    height: 8px;
 
-    0% {
-        opacity: 1;
-        transform:
-            translateX(-50%)
-            scale(1);
-    }
+    margin-top: -2px;
 
-    40% {
-        opacity: .7;
-        transform:
-            translateX(-50%)
-            translateX(8px)
-            scale(.8);
-    }
+    background: #292929;
 
-    100% {
-        opacity: 0;
-        transform:
-            translateX(-50%)
-            translateX(18px)
-            translateY(-8px)
-            scale(.1);
-    }
+    border-radius: 2px;
+
+    display: block !important;
+
+    opacity: 1 !important;
+
+    visibility: visible !important;
+
+    z-index: 2;
 }
 
+/* ================= CANDLE BODY ================= */
+
+.candle-body {
+    position: relative;
+
+    width: 15px;
+    height: 40px;
+
+    border-radius: 4px;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #ffffff 0 5px,
+            #ff7597 5px 10px
+        );
+
+    box-shadow:
+        inset 1px 1px 2px #ffffffcc,
+        inset -1px -1px 2px #d64f75,
+        0 2px 5px #0002;
+}
+
+/* ================= BLOWN STATE ================= */
+
+.blown .flame {
+    opacity: 0 !important;
+
+    transform:
+        translateY(-7px)
+        scale(.1) !important;
+
+    animation: none !important;
+
+    pointer-events: none;
+}
+
+/* Wick NEVER disappears */
+.blown .wick {
+    display: block !important;
+
+    opacity: 1 !important;
+
+    visibility: visible !important;
+}
 /* =====================================================
    MOBILE
 ===================================================== */
@@ -1726,21 +1790,35 @@ button {
     top: 55%;
 
     width: 9px;
-    height: 17px;
+    height: 16px;
 
     z-index: 9999;
     pointer-events: none;
 
-    border-radius: 2px;
+    border-radius: 3px;
 
-    /* shiny paper */
+    /* Theme colors aur glassmorphism ke sath matching texture */
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff77 0%,
+            transparent 30%,
+            #00000015 70%,
+            transparent 100%
+        ),
+        var(--paper-color);
+
+    /* Pastel glow & soft edge */
     box-shadow:
-        0 0 5px #ffffffaa,
-        0 0 9px currentColor;
+        inset 1px 1px 1.5px rgba(255, 255, 255, 0.7),
+        inset -1px -1px 1.5px rgba(0, 0, 0, 0.15),
+        0 4px 10px rgba(191, 162, 219, 0.25);
 
     animation:
-        confettiBlast 1.7s var(--delay)
-        cubic-bezier(.12,.72,.2,1)
+        confettiBlast
+        2.2s
+        var(--delay)
+        cubic-bezier(.16, .85, .32, 1)
         forwards;
 }
 
@@ -1750,46 +1828,76 @@ button {
         opacity: 0;
         transform:
             translate(-50%, -50%)
-            scale(.25)
-            rotate(0deg);
+            scale(0.2)
+            rotateX(0deg)
+            rotateY(0deg)
+            rotateZ(0deg);
     }
 
-    8% {
+    10% {
         opacity: 1;
-    }
-
-    30% {
-        opacity: 1;
-
         transform:
             translate(
-                calc(-50% + var(--x) * .45),
-                calc(-50% + var(--y) * .45)
+                calc(-50% + var(--x) * 0.45),
+                calc(-50% + var(--y) * 0.7)
             )
-            scale(1.15)
-            rotate(calc(var(--r) * .4));
+            scale(1)
+            rotateX(calc(var(--rx) * 0.3))
+            rotateY(calc(var(--ry) * 0.3))
+            rotateZ(calc(var(--rz) * 0.3));
     }
 
-    65% {
-        opacity: 1;
-
+    40% {
         transform:
             translate(
-                calc(-50% + var(--x) * .8),
-                calc(-50% + var(--y) * .8)
+                calc(-50% + var(--x) * 0.8),
+                calc(-50% + var(--y))
             )
-            rotate(calc(var(--r) * .75));
+            rotateX(calc(var(--rx) * 0.7))
+            rotateY(calc(var(--ry) * 0.7))
+            rotateZ(calc(var(--rz) * 0.65));
+    }
+
+    75% {
+        opacity: 0.95;
+        transform:
+            translate(
+                calc(-50% + var(--x) * 0.95),
+                calc(-50% + var(--y) + 240px)
+            )
+            rotateX(calc(var(--rx) * 1.4))
+            rotateY(calc(var(--ry) * 1.4))
+            rotateZ(calc(var(--rz) * 1.1));
     }
 
     100% {
         opacity: 0;
-
         transform:
             translate(
                 calc(-50% + var(--x)),
-                calc(-50% + var(--y) + 360px)
+                calc(-50% + var(--y) + 480px)
             )
-            rotate(var(--r))
-            scale(.85);
+            rotateX(var(--rx))
+            rotateY(var(--ry))
+            rotateZ(var(--rz));
     }
+}
+
+/* Candles ko top cake ke upar set karna */
+.candles-wrapper {
+    position: absolute !important;
+    left: 50% !important;
+    bottom: 202px !important; /* Top cake layer ke upar */
+    transform: translateX(-50%) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: flex-end !important;
+    gap: 22px !important;
+    z-index: 10 !important;
+}
+
+/* Cake ke purane duplicate strips ko clear karna */
+.cake.topCake::before,
+.cake.topCake::after {
+    display: none !important;
 }

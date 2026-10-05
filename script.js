@@ -812,7 +812,7 @@ function loadCakeScreen() {
 
     const candles =
         document.querySelector(
-            ".candles"
+            ".candles-wrapper"
         );
 
     const blowButton =
@@ -1001,7 +1001,7 @@ function blowCandles() {
  createPartyBlast();
     const candles =
         document.querySelector(
-            ".candles"
+            ".candles-wrapper"
         );
 
     const flames =
@@ -1787,46 +1787,66 @@ function showBirthdayReveal() {
     nextScreen(6);
 }
 function createPartyBlast() {
+
+    // Aapke theme ke custom pastel & glowing accents
     const colors = [
-        "#ff4f87", "#ffd05a", "#62d9e8", 
-        "#b879e8", "#ff9b55", "#4ceb95", "#ff6b6b"
+        "#ff7597", // --primary-pink
+        "#ffd3e0", // --soft-pink
+        "#bfa2db", // --lavender
+        "#8e44ad", // deep purple/lavender accent
+        "#ffd000", // candle flame gold
+        "#48bb78", // sprinkle green
+        "#ffffff"  // sparkling white
     ];
-    
-    const shapes = ["rect", "square", "circle"];
-    const count = 90;
-    const fragment = document.createDocumentFragment();
 
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < 90; i++) {
+
         const piece = document.createElement("span");
-        
-        // Random shape
-        const shape = shapes[Math.floor(Math.random() * shapes.length)];
-        piece.className = `party-confetti ${shape}`;
 
-        // Physics values
-        const xSpread = (Math.random() - 0.5) * 750;
-        const yLaunch = -Math.random() * 420 - 140; // upward trajectory
-        const drift = (Math.random() - 0.5) * 80;    // air resistance flutter
+        piece.className = "party-confetti";
 
-        piece.style.setProperty("--paper-color", colors[Math.floor(Math.random() * colors.length)]);
-        piece.style.setProperty("--x", `${xSpread}px`);
-        piece.style.setProperty("--y", `${yLaunch}px`);
-        piece.style.setProperty("--drift", `${drift}px`);
-        
-        // 3D rotations for tumbling paper effect
-        piece.style.setProperty("--rx", `${Math.random() * 900 - 450}deg`);
-        piece.style.setProperty("--ry", `${Math.random() * 1080 - 540}deg`);
-        piece.style.setProperty("--rz", `${Math.random() * 500 - 250}deg`);
-        
-        piece.style.setProperty("--delay", `${Math.random() * 0.12}s`);
+        piece.style.setProperty(
+            "--paper-color",
+            colors[Math.floor(Math.random() * colors.length)]
+        );
 
-        fragment.appendChild(piece);
+        // Wide spread across the screen
+        piece.style.setProperty(
+            "--x",
+            `${(Math.random() - 0.5) * 650}px`
+        );
+
+        // Upward burst height
+        piece.style.setProperty(
+            "--y",
+            `${-Math.random() * 380 - 80}px`
+        );
+
+        // 3D rotation angles (realistic tumble)
+        piece.style.setProperty(
+            "--rx",
+            `${Math.random() * 800 - 400}deg`
+        );
+
+        piece.style.setProperty(
+            "--ry",
+            `${Math.random() * 1000 - 500}deg`
+        );
+
+        piece.style.setProperty(
+            "--rz",
+            `${Math.random() * 600 - 300}deg`
+        );
+
+        piece.style.setProperty(
+            "--delay",
+            `${Math.random() * 0.15}s`
+        );
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => {
+            piece.remove();
+        }, 2400);
     }
-
-    document.body.appendChild(fragment);
-
-    // Single cleanup timeout for all pieces
-    setTimeout(() => {
-        document.querySelectorAll(".party-confetti").forEach(el => el.remove());
-    }, 2400);
 }

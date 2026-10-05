@@ -362,23 +362,27 @@
 
             <div class="cakeContainer">
 
-                <div class="candles">
-
-                    <div class="candle">
-                        <div class="flame"></div>
-                    </div>
-
-                    <div class="candle">
-                        <div class="flame"></div>
-                    </div>
-
-                    <div class="candle">
-                        <div class="flame"></div>
-                    </div>
-
-                </div>
-
-
+           <div class="candles-wrapper">
+    
+    <div class="candle">
+        <div class="flame"></div>
+        <div class="wick"></div>
+        <div class="candle-body"></div>
+    </div>
+    
+    <div class="candle">
+        <div class="flame"></div>
+        <div class="wick"></div>
+        <div class="candle-body"></div>
+    </div>
+    
+    <div class="candle">
+        <div class="flame"></div>
+        <div class="wick"></div>
+        <div class="candle-body"></div>
+    </div>
+    
+</div>
                 <div class="cake topCake">
                     <i></i>
                     <b></b>
@@ -512,50 +516,29 @@
     </section>
 
 
-    <!-- ================= SCREEN 9 : LETTER ================= -->
-    <section
-        class="screen final-screen"
-        id="screen9">
+<!-- ================= SCREEN 9 : LETTER ================= -->
+<section class="screen final-screen" id="screen9">
+    <div class="content">
 
-        <div class="content">
-
-
-            <div
-                class="envelope"
-                onclick="openLetter()">
-
-                <div class="flap"></div>
-
-
-                <div class="letter">
-
-                    <h2>
-                        For You
-                        <span class="emoji">♡</span>
-                    </h2>
-
-                    <div id="letterText"></div>
-
-                    <p id="letterHint">
-                        Tap the envelope to read
-                    </p>
-
-                </div>
-
+        <div class="envelope" onclick="openLetter()">
+            <div class="flap"></div>
+            <div class="letter">
+                <h2>For You <span class="emoji">♡</span></h2>
+                <div id="letterText"></div>
             </div>
-
-
-            <button
-                class="btn back"
-                onclick="goToPreviousPage()">
-
-                ← Previous
-
-            </button>
-
         </div>
 
-    </section>
+        <!-- HINT KO ENVELOPE KE BAHAR RAKHEIN -->
+        <p id="letterHint">
+            Tap the envelope to read 💌
+        </p>
+
+        <button class="btn back" onclick="goToPreviousPage()">
+            ← Previous
+        </button>
+
+    </div>
+</section>
 
 </main>
 
