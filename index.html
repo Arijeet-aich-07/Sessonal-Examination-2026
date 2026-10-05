@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>kya huaaa??? </title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<button
+    id="soundToggle"
+    class="sound-toggle"
+    onclick="toggleSound()">
+    🙉
+</button>
+
+<div class="site-credit">arijeet_07</div>
+
+<main>
+
+    <!-- ================= SCREEN 1 ================= -->
+    <section class="screen active" id="screen1">
+
+        <div class="content hero">
+
+            <p class="small">
+                A LITTLE SOMETHING ✦
+            </p>
+
+            <h1>
+            hey youu...
+                <span class="emoji">👀</span>
+            </h1>
+
+            <p>
+              Are u Curious??..</br> wohh to tu janm se hi hain 🫢..
+            </br> 
+            Kuch nhi bas ek chota website hai tere liye...🍃
+            </p>
+
+            <button
+                class="btn primary"
+                onclick="beginSurprise()">
+
+                Open The Surprise
+                <span class="emoji">✨</span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SCREEN 2 ================= -->
+    <section class="screen" id="screen2">
+
+        <div class="content">
+
+            <div class="big-icon">
+                🔐
+            </div>
+
+            <p class="small">
+                PRIVATE ACCESS
+            </p>
+
+            <h1>
+                Something is<br>
+                waiting for 
+                <span class="emoji">🫵</span>
+            </h1>
+
+            <p class="sub">
+                Par rukooo… pehle ek chhota sa proof dena padega ki ye surprise tumhare liye hi hai 👀🎀
+            </p>
+
+            <button
+                class="btn"
+                onclick="goToDOB()">
+
+                Continue →
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SCREEN 3 : DOB ================= -->
+    <section
+        class="screen dob-screen"
+        id="screen3">
+
+        <div class="content">
+
+            <p class="small">
+                TINY SECRET
+                <span class="emoji">🧶</span>
+            </p>
+
+            <h1 class="dob-title">
+                Tera birthday kab hai?
+                <span class="emoji">🌝</span>
+            </h1>
+
+            <p class="sub">
+                Enter the date to unlock<br>
+                the surprise.
+            </p>
+
+
+            <!-- DOB KEYPAD -->
+
+            <div class="dob-keypad">
+
+                <div
+                    class="dob-display"
+                    id="dobDisplay">
+
+                    <span>_</span>
+                    <span>_</span>
+                    <span>_</span>
+                    <span>_</span>
+
+                </div>
+
+
+                <div class="keypad-grid">
+
+                    <button
+                        type="button"
+                        onclick="pressKey('1')">
+                        1
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="pressKey('2')">
+                        2
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="pressKey('3')">
+                        3
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="pressKey('4')">
+                        4
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="pressKey('5')">
+                        5
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="pressKey('6')">
+                        6
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="pressKey('7')">
+                        7
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="pressKey('8')">
+                        8
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="pressKey('9')">
+                        9
+                    </button>
+
+
+                    <button
+                        type="button"
+                        class="key-clear"
+                        onclick="deleteKey()">
+                        ⌫
+                    </button>
+
+                    <button
+                        type="button"
+                        onclick="pressKey('0')">
+                        0
+                    </button>
+
+                    <button
+                        type="button"
+                        class="key-enter"
+                        onclick="submitDOB()">
+                        ✓
+                    </button>
+
+                </div>
+
+                <div class="format">
+                    DDMM
+                </div>
+
+            </div>
+
+
+            <button
+                class="btn"
+                onclick="submitDOB()">
+
+                Unlock My Surprise
+                <span class="emoji">✨</span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SCREEN 4 ================= -->
+    <section class="screen" id="screen4">
+
+        <div class="content">
+
+            <div class="big-icon access">
+                ✓
+            </div>
+
+            <p class="small">
+                ACCESS GRANTED
+            </p>
+
+            <h1>
+                Okay... you got it
+                <span class="emoji">😌</span>
+            </h1>
+
+            <p class="sub">
+                The secret door is open now.
+            </p>
+
+            <button
+                class="btn"
+                onclick="nextScreen(5)">
+
+                Enter →
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SCREEN 5 ================= -->
+    <section class="screen" id="screen5">
+
+        <div class="content">
+
+            <div class="stars">
+                ✦　✧　✦
+            </div>
+
+            <p class="small">
+                ONE LAST STEP
+            </p>
+
+            <h1>
+                Ready?
+            </h1>
+
+            <p class="sub">
+                Because the actual surprise starts now.
+            </p>
+
+          <button class="btn primary" onclick="showBirthdayReveal()">
+    Let's Begin <span class="emoji">♡</span>
+</button>
+        </div>
+
+    </section>
+
+
+    <!-- ================= SCREEN 6 : BIRTHDAY ================= -->
+    <section
+        class="screen birthday-screen"
+        id="screen6">
+
+        <div class="content birthday-content">
+
+            <div class="birthday-icons">
+
+                <span>✦</span>
+                <span>♡</span>
+                <span>✧</span>
+                <span>♡</span>
+                <span>✦</span>
+
+            </div>
+
+            <p class="birthday-small">
+                ✨ TODAY IS YOUR DAY ✨
+            </p>
+
+            <h1 class="birthday-title">
+                Happy Birthday
+            </h1>
+
+            <div class="birthday-girl">
+                <span>♡</span>
+                Beautiful Soul
+                <span>♡</span>
+            </div>
+
+            <p class="birthday-subtitle">
+                A little surprise made<br>
+                especially for Riya 🦁 Roy
+            </p>
+
+<button
+    class="btn birthday-btn"
+    onclick="nextScreen(7)">
+    Let The Celebration Begin ✨
+</button>
+        </div>
+
+    </section>
+
+
+    <!-- ================= SCREEN 7 : CAKE ================= -->
+    <section
+        class="screen cake-screen"
+        id="screen7">
+
+        <div class="content">
+
+            <h1 id="candle-title">
+                Make a Wish
+                <span class="emoji">🕯️</span>
+            </h1>
+
+            <p id="candle-subtitle">
+                Tap the button to blow the candles!
+            </p>
+
+
+            <div class="cakeContainer">
+
+                <div class="candles">
+
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="cake topCake">
+                    <i></i>
+                    <b></b>
+                </div>
+
+                <div class="cake middleCake">
+                    <i></i>
+                    <b></b>
+                </div>
+
+                <div class="cake bottomCake">
+                    <i></i>
+                    <b></b>
+                </div>
+
+
+                <div class="cakeStand"></div>
+
+            </div>
+
+
+            <button
+                id="blowBtn"
+                class="btn"
+                style="display:none"
+                onclick="blowCandles()">
+
+                Tap To Blow 🌪️
+
+            </button>
+
+
+            <button
+                id="cakeNextBtn"
+                class="btn"
+                style="display:none"
+                onclick="goToMemoriesDirectly()">
+
+                See Some Memories ✨🧸
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SCREEN 8 : MEMORIES ================= -->
+    <section
+        class="screen memories-screen"
+        id="screen8">
+
+        <div class="content">
+
+            <p class="small">
+                A FEW LITTLE MOMENTS
+            </p>
+
+            <h1>
+                Our Memories
+                <span class="emoji">♡</span>
+            </h1>
+
+
+            <div
+                class="memory-gallery"
+                id="memoryGallery">
+
+                <div class="memory-card">
+
+                    <img
+                        id="memoryImage"
+                        src="memory1.jpg"
+                        alt="Memory">
+
+                    <div
+                        class="memory-caption"
+                        id="memoryCaption">
+
+                        A beautiful little memory ✨
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="memory-counter"
+                id="memoryCounter">
+
+                1 / 8
+
+            </div>
+
+
+            <div
+                class="memory-dots"
+                id="memoryDots">
+            </div>
+
+
+            <p class="memory-hint">
+                Swipe to see the next 🎬
+            </p>
+
+
+            <div class="memory-actions">
+
+                <button
+                    class="btn back"
+                    onclick="goToPreviousPage()">
+
+                    ← Previous
+
+                </button>
+
+                <button
+                    class="btn"
+                    onclick="goToFinalLetter()">
+
+                    One Last Thing 💌
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SCREEN 9 : LETTER ================= -->
+    <section
+        class="screen final-screen"
+        id="screen9">
+
+        <div class="content">
+
+
+            <div
+                class="envelope"
+                onclick="openLetter()">
+
+                <div class="flap"></div>
+
+
+                <div class="letter">
+
+                    <h2>
+                        For You
+                        <span class="emoji">♡</span>
+                    </h2>
+
+                    <div id="letterText"></div>
+
+                    <p id="letterHint">
+                        Tap the envelope to read
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="btn back"
+                onclick="goToPreviousPage()">
+
+                ← Previous
+
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- MAIN MUSIC -->
+
+<audio
+    id="bgMusic"
+    loop
+    preload="auto">
+
+    <source
+        src="music.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+<!-- MEMORY MUSIC -->
+
+<audio
+    id="memoryMusic"
+    loop
+    preload="auto">
+
+    <source
+        src="memory.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+
+<script src="script.js"></script>
+
+</body>
+</html 
