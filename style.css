@@ -276,20 +276,16 @@ button {
    CREDIT
 ===================================================== */
 
-.site-credit {
-    position: fixed;
-
-    right: 37px;
-    bottom: 50px;
-
-    z-index: 1000;
-
-    font-size: .68rem;
-    letter-spacing: 1.5px;
-
-    color: #ffffff47;
-
-    pointer-events: none;
+.site-credit { 
+  position: fixed; 
+  right: 27px; 
+  bottom: 40px; 
+  z-index: 1000; 
+  font-size: .68rem; 
+  letter-spacing: 1.5px; 
+  color: #ffffff47; 
+  pointer-events: none; 
+  font-family: 'Brush Script MT', 'Lucida Handwriting', Apple Chancery, cursive; /* 👈 Yeh line add karein */
 }
 
 
